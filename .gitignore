@@ -27,7 +27,6 @@ yarn-error.log*
 /zk-single-kafka-single
 # local env files
 .env*.local
-docker-compose.yml
 
 # vercel
 .vercel
