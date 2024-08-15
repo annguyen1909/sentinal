@@ -43,6 +43,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { Mail } from "@/app/(root)/scan/data"
+import { ScrollArea } from "../ui/scroll-area"
 
 interface MailDisplayProps {
   mail: Mail | null
@@ -188,9 +189,11 @@ export function MailDisplay({ mail }: MailDisplayProps) {
             </div>
           </div>
           <Separator />
+          <ScrollArea className="h-[25vh]">
           <div className="flex-1 whitespace-pre-wrap p-4 text-sm">
             {mail.text}
           </div>
+          </ScrollArea>
           <Separator className="mt-auto" />
           <div className="flex">
           {/* <ChartContainer config={chartConfig} className="flex min-h-[200px] w-[50%]">
