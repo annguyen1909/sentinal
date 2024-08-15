@@ -25,7 +25,6 @@ export default function RootLayout({
   return (
     <ClerkProvider
       appearance={{
-        baseTheme: dark,
         variables: {
           colorPrimary: "#3371FF",
           fontSize: "16px",
@@ -34,6 +33,8 @@ export default function RootLayout({
     >
       <html lang="en">
         <body className={inter.className}>
+
+          
           <Topbar />
 
           <main className="flex flex-row">
