@@ -49,7 +49,7 @@ interface MailProps {
 export function Mail({
   accounts,
   mails,
-  defaultLayout = [265, 440, 655],
+  defaultLayout = [70,30],
   defaultCollapsed = false,
 }: MailProps) {
   const [isCollapsed, setIsCollapsed] = React.useState(defaultCollapsed)
@@ -57,6 +57,7 @@ export function Mail({
 
   return (
     <TooltipProvider delayDuration={0}>
+      <Separator />
       <ResizablePanelGroup
         direction="horizontal"
         onLayout={(sizes: number[]) => {
@@ -64,7 +65,7 @@ export function Mail({
             sizes
           )}`
         }}
-        className="h-full min-h-[70vh] items-stretch"
+        className="h-full min-h-svh min-w-full items-stretch"
       >
         <ResizablePanel defaultSize={defaultLayout[1]} minSize={30}>
           <Tabs defaultValue="all">
@@ -77,18 +78,16 @@ export function Mail({
             <TabsContent value="all" className="m-0">
               <MailList items={mails} />
             </TabsContent>
-            <TabsContent value="unread" className="m-0">
-              <MailList items={mails.filter((item) => !item.read)} />
-            </TabsContent>
           </Tabs>
         </ResizablePanel>
         <ResizableHandle/>
-        <ResizablePanel defaultSize={defaultLayout[2]}>
+        <ResizablePanel className="">
           <MailDisplay
             mail={mails.find((item) => item.id === mail.selected) || null}
           />
         </ResizablePanel>
       </ResizablePanelGroup>
+      <Separator />
     </TooltipProvider>
   )
 }

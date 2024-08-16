@@ -5,7 +5,8 @@ import { Component, Component2 } from "@/components/ui/circle-chart"
 import {
   Archive,
   ArchiveX,
-  Clock,
+  Save,
+  Upload,
   Forward,
   MoreVertical,
   Reply,
@@ -70,38 +71,28 @@ const chartConfig = {
 } satisfies ChartConfig
 
 export function MailDisplay({ mail }: MailDisplayProps) {
-  const today = new Date()
 
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex min-w-fit h-full max-md:w-1/2 flex-col">
       <div className="flex items-center p-2">
         <div className="flex items-center gap-2">
           <Tooltip>
             <TooltipTrigger asChild>
               <Button variant="ghost" size="icon" disabled={!mail}>
-                <Archive className="h-4 w-4" />
-                <span className="sr-only">Archive</span>
+                <Upload className="h-4 w-4" />
+                <span className="sr-only">Upload</span>
               </Button>
             </TooltipTrigger>
-            <TooltipContent>Archive</TooltipContent>
+            <TooltipContent>Upload</TooltipContent>
           </Tooltip>
           <Tooltip>
             <TooltipTrigger asChild>
               <Button variant="ghost" size="icon" disabled={!mail}>
-                <ArchiveX className="h-4 w-4" />
-                <span className="sr-only">Move to junk</span>
+                <Save className="h-4 w-4" />
+                <span className="sr-only">Save</span>
               </Button>
             </TooltipTrigger>
-            <TooltipContent>Move to junk</TooltipContent>
-          </Tooltip>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Button variant="ghost" size="icon" disabled={!mail}>
-                <Trash2 className="h-4 w-4" />
-                <span className="sr-only">Move to trash</span>
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent>Move to trash</TooltipContent>
+            <TooltipContent>Save</TooltipContent>
           </Tooltip>
           <Separator orientation="vertical" className="mx-1 h-6" />
           <Tooltip>
@@ -120,7 +111,7 @@ export function MailDisplay({ mail }: MailDisplayProps) {
             <TooltipContent>Snooze</TooltipContent>
           </Tooltip>
         </div>
-        <div className="ml-auto flex items-center gap-2">
+        {/* <div className="ml-auto flex items-center gap-2">
           <Tooltip>
             <TooltipTrigger asChild>
               <Button variant="ghost" size="icon" disabled={!mail}>
@@ -148,9 +139,9 @@ export function MailDisplay({ mail }: MailDisplayProps) {
             </TooltipTrigger>
             <TooltipContent>Forward</TooltipContent>
           </Tooltip>
-        </div>
-        <Separator orientation="vertical" className="mx-2 h-6" />
-        <DropdownMenu>
+        </div> */}
+        {/* <Separator orientation="vertical" className="mx-2 h-6" /> */}
+        {/* <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="icon" disabled={!mail}>
               <MoreVertical className="h-4 w-4" />
@@ -163,7 +154,7 @@ export function MailDisplay({ mail }: MailDisplayProps) {
             <DropdownMenuItem>Add label</DropdownMenuItem>
             <DropdownMenuItem>Mute thread</DropdownMenuItem>
           </DropdownMenuContent>
-        </DropdownMenu>
+        </DropdownMenu> */}
       </div>
       <Separator />
       {mail ? (
@@ -194,25 +185,11 @@ export function MailDisplay({ mail }: MailDisplayProps) {
             {mail.text}
           </div>
           </ScrollArea>
-          <Separator className="mt-auto" />
           <div className="flex">
-          {/* <ChartContainer config={chartConfig} className="flex min-h-[200px] w-[50%]">
-            <BarChart accessibilityLayer data={chartData}>
-              <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
-              <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
-            </BarChart>
-          </ChartContainer> */}
-          <Component/>
+            <Component/>
           <Separator orientation="vertical" />
-          <Component2/>
-          {/* <ChartContainer config={chartConfig} className="flex min-h-[200px] w-[50%]">
-            <BarChart accessibilityLayer data={chartData}>
-              <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
-              <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
-            </BarChart>
-          </ChartContainer> */}
+            <Component2/>
           </div>
-          <Separator className="mt-auto" />
           <div className="p-4">
             <form>
               <div className="grid gap-4">
@@ -221,13 +198,6 @@ export function MailDisplay({ mail }: MailDisplayProps) {
                   placeholder={`Reply ${mail.name}...`}
                 />
                 <div className="flex items-center">
-                  <Label
-                    htmlFor="mute"
-                    className="flex items-center gap-2 text-xs font-normal"
-                  >
-                    <Switch id="mute" aria-label="Mute thread" /> Mute this
-                    thread
-                  </Label>
                   <Button
                     onClick={(e) => e.preventDefault()}
                     size="sm"

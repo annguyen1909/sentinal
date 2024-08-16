@@ -15,13 +15,13 @@ export function MailList({ items }: MailListProps) {
   const [mail, setMail] = useMail()
 
   return (
-    <ScrollArea className="h-[77vh]">
+    <ScrollArea className="h-[100vh]">
       <div className="flex flex-col gap-2 p-4 pt-0">
         {items.map((item) => (
           <button
             key={item.id}
             className={cn(
-              "flex flex-col items-start gap-2 rounded-lg border p-3 text-left text-sm transition-all hover:bg-accent",
+              "flex h-[10vh] flex-col items-start gap-2 rounded-lg border p-3 text-left text-sm transition-all hover:bg-accent",
               mail.selected === item.id && "bg-muted"
             )}
             onClick={() =>
@@ -54,7 +54,7 @@ export function MailList({ items }: MailListProps) {
             <div className="line-clamp-2 text-xs text-muted-foreground">
               {item.text.substring(0, 300)}
             </div>
-            {item.labels.length ? (
+            {/* {item.labels.length ? (
               <div className="flex items-center gap-2">
                 {item.labels.map((label) => (
                   <Badge key={label} variant={getBadgeVariantFromLabel(label)}>
@@ -62,7 +62,7 @@ export function MailList({ items }: MailListProps) {
                   </Badge>
                 ))}
               </div>
-            ) : null}
+            ) : null} */}
           </button>
         ))}
       </div>

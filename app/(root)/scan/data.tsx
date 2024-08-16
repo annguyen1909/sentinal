@@ -1,13 +1,13 @@
 export const mails = [
     {
-      id: "6c84fb90-12c4-11e1-840d-7b25c5ee775a",
-      name: "William Smith",
-      email: "williamsmith@example.com",
-      subject: "Meeting Tomorrow",
-      text: "Hi, let's have a meeting tomorrow to discuss the project. I've been reviewing the project details and have some ideas I'd like to share. It's crucial that we align on our next steps to ensure the project's success.\n\nPlease come prepared with any questions or insights you may have. Looking forward to our meeting!\n\nBest regards, William",
-      date: "2023-10-22T09:00:00",
-      read: true,
-      labels: ["meeting", "work", "important"],
+      id: "a32b7e90-4c65-4e2d-a387-9f23a49b1d05",
+      name: "AI Assistant",
+      email: "aiassistant@example.com",
+      subject: "Project Review",
+      text: "I've analyzed the latest project deliverables and would like to share my thoughts. The progress is commendable, and there are some key areas where further improvements could boost the overall quality.\n\nPlease review the attached feedback document for detailed insights and recommendations. Addressing these points will ensure we maintain our momentum and deliver exceptional results.\n\nI'm here to assist you in refining the project. Let me know if you need any further analysis or guidance.\n\nBest regards, AI Assistant",
+      date: "2024-08-16T14:00:00",
+      read: false,
+      labels: ["generated", "AI"]
     },
     {
       id: "110e8400-e29b-11d4-a716-446655440000",

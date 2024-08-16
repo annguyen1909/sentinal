@@ -27,18 +27,11 @@ export default function MailPage() {
     setDefaultLayout(layout ? parseJSON(layout) : undefined);
     setDefaultCollapsed(collapsed ? parseJSON(collapsed) : undefined);
 
-    // Add the no-scroll class to the body when the component mounts
-    document.body.classList.add('no-scroll');
-
-    // Remove the no-scroll class when the component unmounts
-    return () => {
-      document.body.classList.remove('no-scroll');
-    };
   }, []);
 
   return (
     <>
-      <div className="md:hidden">
+      {/* <div className="md:hidden">
         <Image
           src="/examples/mail-dark.png"
           width={1280}
@@ -53,8 +46,8 @@ export default function MailPage() {
           alt="Mail"
           className="block dark:hidden"
         />
-      </div>
-      <div className="min-h-[50%] hidden flex-col md:flex">
+      </div> */}
+      <div className="min-h-[100vh] flex-col md:flex">
         <Mail
           accounts={accounts}
           mails={mails}
